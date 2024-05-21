@@ -19,7 +19,7 @@ class User implements iManageSIM {
     }
     ricarica(importo: number):number {
         this.credito += importo
-        console.log(`${this.nome} ${this.cognome}: hai effettuato una ricarica di ${importo}.` )
+        console.log(`${this.nome} ${this.cognome}: hai effettuato una ricarica di ${importo} euro. Il tuo credito attuale è: ${this.credito}` )
         return this.credito;
     }
     chiamata(minuti: number):number {
@@ -29,7 +29,7 @@ class User implements iManageSIM {
         if(this.credito > costoTotaleDellaChiamata) {
             this.credito -= costoTotaleDellaChiamata
             this.numeroChiamate += minuti
-            console.log(`La chiamata effettuata è durata ${minuti}. Costo della chiamata: ${costoTotaleDellaChiamata}. Credito residuo: ${this.credito}`)
+            console.log(`La chiamata effettuata è durata ${minuti} minuti. Costo della chiamata: ${costoTotaleDellaChiamata}. Credito residuo: ${this.credito}`)
         } else {
             console.log('Impossibile effettuare la chiamata. Credito insufficiente')
         }
@@ -52,6 +52,6 @@ class User implements iManageSIM {
 const user = new User('Mario', 'Rossi') 
 console.log(user)
 user.ricarica(5)
-user.chiamata(12)
+user.chiamata(15)
 user.chiama404()
 user.getNumeroChiamata()

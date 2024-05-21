@@ -7,7 +7,7 @@ var User = /** @class */ (function () {
     }
     User.prototype.ricarica = function (importo) {
         this.credito += importo;
-        console.log("".concat(this.nome, " ").concat(this.cognome, ": hai effettuato una ricarica di ").concat(importo, "."));
+        console.log("".concat(this.nome, " ").concat(this.cognome, ": hai effettuato una ricarica di ").concat(importo, " euro. Il tuo credito attuale \u00E8: ").concat(this.credito));
         return this.credito;
     };
     User.prototype.chiamata = function (minuti) {
@@ -16,7 +16,7 @@ var User = /** @class */ (function () {
         if (this.credito > costoTotaleDellaChiamata) {
             this.credito -= costoTotaleDellaChiamata;
             this.numeroChiamate += minuti;
-            console.log("La chiamata effettuata \u00E8 durata ".concat(minuti, ". Costo della chiamata: ").concat(costoTotaleDellaChiamata, ". Credito residuo: ").concat(this.credito));
+            console.log("La chiamata effettuata \u00E8 durata ".concat(minuti, " minuti. Costo della chiamata: ").concat(costoTotaleDellaChiamata, ". Credito residuo: ").concat(this.credito));
         }
         else {
             console.log('Impossibile effettuare la chiamata. Credito insufficiente');
@@ -39,6 +39,6 @@ var User = /** @class */ (function () {
 var user = new User('Mario', 'Rossi');
 console.log(user);
 user.ricarica(5);
-user.chiamata(12);
+user.chiamata(15);
 user.chiama404();
 user.getNumeroChiamata();
