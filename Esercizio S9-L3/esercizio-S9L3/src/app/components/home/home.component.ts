@@ -8,10 +8,12 @@ import { iPost, iArticle } from '../../Models/article';
 })
 export class HomeComponent {
 
+
   apiArticle = '../../../assets/db.json'
   ArticleArr:iArticle[] = []
   ngOnInit(){
     this.getArticles()
+    this.randomArray();
   }
 
   async getArticles():Promise<void>{
@@ -21,4 +23,17 @@ export class HomeComponent {
     this.ArticleArr = allobj.posts;
     console.log(this.ArticleArr)
   }
-}
+
+  randomArray():void {
+    const randomArray: string[] = this.shuffle(this.ArticleArr)
+  }
+
+  shuffle = (array: string []) => {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+  };
+};
+

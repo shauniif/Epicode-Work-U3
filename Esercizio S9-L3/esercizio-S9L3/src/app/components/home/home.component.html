@@ -1,8 +1,19 @@
-<h1 class="text-center">Post Principale:</h1>
 <div class="container">
   <div class="row">
-    <div class="col-12" *ngFor="let article of ArticleArr">
-      <h4>{{ article.title }}</h4>
+    <h1 class="text-center">Post Principale:</h1>
+    <div class="col-12">
+      <h4>{{ ArticleArr[8].title }}</h4>
+      <p>{{ ArticleArr[8].body }}</p>
+      <a href="">
+        {{ ArticleArr[8].tags }}
+      </a>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <h2>Potrebbero piacerti questi post:</h2>
+    <div class="col-12">
+      <h4></h4>
+      <p></p>
     </div>
   </div>
 </div>
