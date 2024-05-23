@@ -26,6 +26,6 @@ export class PostsService {
     return this.ArticleArr.filter(spost => spost.active === false)
   }
   getById(id:number){
-  return this.ArticleArr.find(spost => spost.id === id)
+  return this.ArticleArr.find(spost => spost.id == id)
   }
 }
