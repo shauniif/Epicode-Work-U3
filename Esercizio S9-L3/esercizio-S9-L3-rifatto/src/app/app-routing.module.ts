@@ -26,17 +26,7 @@ const routes: Routes = [ {
     title:'Inactive posts'
   },
   {
-    path:'home/:id',
-    component: PostDetailComponent,
-    title:'Post detail'
-  },
-  {
-    path:'active-posts/:id',
-    component: PostDetailComponent,
-    title:'Post detail'
-  },
-  {
-    path:'inactive-posts/:id',
+    path:'post-detail/:id',
     component: PostDetailComponent,
     title:'Post detail'
   }

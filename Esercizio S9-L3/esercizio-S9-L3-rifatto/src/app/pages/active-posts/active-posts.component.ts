@@ -14,8 +14,11 @@ export class ActivePostsComponent {
     private postsSvc:PostsService
   ){}
 
-  async ngOnInit() {
-    this.activePostArr = this.postsSvc.getActiveArticles();
+   ngOnInit() {
+    this.postsSvc.getArticles().then(() => {
+
+      this.activePostArr = this.postsSvc.getActiveArticles();
+    })
 
   }
 }

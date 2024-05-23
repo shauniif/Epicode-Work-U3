@@ -15,15 +15,21 @@ export class PostsService {
 
 
   async getArticles():Promise<void>{
-    let response = await fetch(this.apiArticle)
-    let allobj = <iJsonContent> await response.json()
-    this.ArticleArr = allobj.posts;
+    try {
+      let response = await fetch(this.apiArticle)
+      let allobj = <iJsonContent> await response.json()
+      this.ArticleArr = allobj.posts;
+    } catch (error) {
+      console.log('Errore del caricamento dei posto', error)
+    }
+
+
   }
   getActiveArticles():iPost[]{
-    return this.ArticleArr.filter(spost => spost.active === true)
+    return this.ArticleArr.filter(spost => spost.active)
   }
   getInactiveArticles():iPost[]{
-    return this.ArticleArr.filter(spost => spost.active === false)
+    return this.ArticleArr.filter(spost => !spost.active)
   }
   getById(id:number){
   return this.ArticleArr.find(spost => spost.id == id)
