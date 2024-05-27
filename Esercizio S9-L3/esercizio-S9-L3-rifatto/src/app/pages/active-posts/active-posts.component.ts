@@ -15,10 +15,8 @@ export class ActivePostsComponent {
   ){}
 
    ngOnInit() {
-    this.postsSvc.getArticles().then(() => {
-
       this.activePostArr = this.postsSvc.getActiveArticles();
-    })
+
 
   }
 }

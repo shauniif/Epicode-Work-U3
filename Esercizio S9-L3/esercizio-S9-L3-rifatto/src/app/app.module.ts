@@ -8,6 +8,8 @@ import { ActivePostsComponent } from './pages/active-posts/active-posts.componen
 import { InactivePostsComponent } from './pages/inactive-posts/inactive-posts.component';
 import { PostDetailComponent } from './pages/post-detail/post-detail.component';
 import { HomeComponent } from './pages/home/home.component';
+import { SinglePostComponent } from './pages/single-post/single-post.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { HomeComponent } from './pages/home/home.component';
     ActivePostsComponent,
     InactivePostsComponent,
     PostDetailComponent,
-    HomeComponent
+    HomeComponent,
+    SinglePostComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

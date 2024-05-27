@@ -14,9 +14,6 @@ export class InactivePostsComponent {
   ){}
 
    ngOnInit() {
-    this.postsSvc.getArticles().then(() => {
-
-      this.inactivePostArr = this.postsSvc.getActiveArticles();
-    })
+      this.inactivePostArr = this.postsSvc.getInactiveArticles();
   }
 }

@@ -17,15 +17,17 @@ export class PostDetailComponent {
   ){}
   ngOnInit(){
     this.route.params.subscribe((params:any) => {
-
-      console.log(params);
-
-      let idSPost = this.postsSvc.getById(params.id)
+      let idSPost!:iPost |undefined;
+      if (params.id == 1) {
+        idSPost = this.postsSvc.getfirstArticle();
+      } else {
+        idSPost = this.postsSvc.getById(params.id);
+      }
 
       console.log(idSPost);
 
-      if(idSPost) {
-        this.selectedPost = idSPost
+      if (idSPost) {
+        this.selectedPost = idSPost;
       }
     })
     }
