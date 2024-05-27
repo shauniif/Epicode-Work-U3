@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { iPost } from '../../Models/i-post';
 
 @Component({
@@ -8,8 +8,8 @@ import { iPost } from '../../Models/i-post';
 })
 export class SinglePostComponent {
   @Input() article!:iPost;
-
+   show:boolean = false
   ShowForm() {
-    console.log('ciao');
+    this.show = !this.show
   }
 }
