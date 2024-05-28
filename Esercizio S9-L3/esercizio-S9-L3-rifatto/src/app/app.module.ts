@@ -10,6 +10,7 @@ import { PostDetailComponent } from './pages/post-detail/post-detail.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SinglePostComponent } from './pages/single-post/single-post.component';
 import { FormsModule } from '@angular/forms';
+import { DirectiverandomcolorDirective } from './Directives/directiverandomcolor.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     InactivePostsComponent,
     PostDetailComponent,
     HomeComponent,
-    SinglePostComponent
+    SinglePostComponent,
+    DirectiverandomcolorDirective
   ],
   imports: [
     BrowserModule,

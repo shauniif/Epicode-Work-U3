@@ -33,6 +33,18 @@
 </div>
 
 <h2 class="text-center">Tutti i post</h2>
+
+<div class="row row-cols-1 row-cols-md-3 row-cols-4 justify-content-center">
+  <h4>Fltred by:</h4>
+  <button
+    *ngFor="let tag of TagsArr"
+    class="w-auto btn"
+    [ngClass]="{ 'btn-success': clicked, 'btn-dark': !clicked }"
+    (click)="clicked = !clicked"
+  >
+    {{ tag | uppercase }}
+  </button>
+</div>
 <div class="row row-cols-1 row-cols-md-3 row-cols-4">
   <div class="col mt-3" *ngFor="let article of ArticleArr">
     <app-single-post [article]="article">

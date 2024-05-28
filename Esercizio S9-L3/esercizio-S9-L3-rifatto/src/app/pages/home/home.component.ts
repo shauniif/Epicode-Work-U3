@@ -10,9 +10,11 @@ import { PostsService } from '../../Services/posts.service';
 })
 export class HomeComponent {
   ArticleArr:iPost[] = []
+  TagsArr:string[] = []
   firstArticle!:iPost
   randomArticle:iPost[] = []
-
+  selectedIndex: number | null = null
+  clicked:boolean = false
   constructor(
     private postsSvc:PostsService
   ){}
@@ -27,5 +29,11 @@ export class HomeComponent {
 
       this.ArticleArr = this.postsSvc.getAll();
       console.log(this.ArticleArr)
-  }
+
+      this.TagsArr = this.postsSvc.getArrayTags();
+      console.log(this.TagsArr)
+
+    }
+
 }
+

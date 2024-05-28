@@ -283,5 +283,11 @@ export class PostsService {
   getById(id:number){
   return this.ArticleArr.find(spost => spost.id == id)
   }
+
+  getArrayTags():string[]{
+    let ArrAllTags:string[] = [...new Set(this.ArticleArr.flatMap(stag => stag.tags))]
+    return ArrAllTags
+  }
+
 }
 
