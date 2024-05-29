@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { iProduct } from '../../Modules/i-product';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-single-product',
@@ -8,4 +9,9 @@ import { iProduct } from '../../Modules/i-product';
 })
 export class SingleProductComponent {
   @Input() product!:iProduct;
+  constructor(private productsvc:ProductService) {}
+
+  favoriteproduct(product: iProduct) {
+    this.productsvc.addToFavorite(product);
+  }
 }

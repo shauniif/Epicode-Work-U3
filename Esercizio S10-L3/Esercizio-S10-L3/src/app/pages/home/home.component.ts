@@ -1,6 +1,7 @@
+import { iProduct } from './../../Modules/i-product';
+import { ProductService } from './../../services/product.service';
 import { Component, OnInit } from '@angular/core';
-import { iProduct } from '../../Modules/i-product';
-import { ProductService } from '../../services/product.service';
+
 import { iJsonContent } from '../../Modules/json-content';
 
 @Component({
@@ -14,11 +15,11 @@ export class HomeComponent implements OnInit {
   constructor(private productsvc:ProductService) {}
 
   ngOnInit(){
-    this.productsvc.getAll().subscribe(products => {
-      this.jsoncontent = products;
-      this.productsArr = this.jsoncontent.products
-    console.log(this.productsArr);
+    this.productsvc.getProducts().subscribe(products => {
+      this.productsArr = products;
+    });
 
-    })
+
+
   }
 }
