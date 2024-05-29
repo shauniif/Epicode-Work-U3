@@ -11,7 +11,4 @@ export class SingleProductComponent {
   @Input() product!:iProduct;
   constructor(private productsvc:ProductService) {}
 
-  favoriteproduct(product: iProduct) {
-    this.productsvc.addToFavorite(product);
-  }
 }

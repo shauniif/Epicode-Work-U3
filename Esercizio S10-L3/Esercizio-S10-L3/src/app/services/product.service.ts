@@ -28,8 +28,15 @@ export class ProductService {
   this.favoriteproductArr.push(product)
   console.log(this.favoriteproductArr)
   }
+  removeFromFavorite(product: iProduct){
+    this.favoriteproductArr = this.favoriteproductArr.filter(p => p.id!== product.id)
+  }
   addtoCart(product: iProduct) {
     this.cartProductArr.push(product)
     console.log(this.cartProductArr)
   }
-}
+  removeFormCart(product: iProduct){
+    this.cartProductArr = this.cartProductArr.filter(p => p !== product )
+    }
+  }
+

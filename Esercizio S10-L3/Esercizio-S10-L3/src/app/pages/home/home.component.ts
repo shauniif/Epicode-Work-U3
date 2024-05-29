@@ -12,6 +12,7 @@ import { iJsonContent } from '../../Modules/json-content';
 export class HomeComponent implements OnInit {
   jsoncontent!:iJsonContent;
   productsArr:iProduct[] = []
+  productsCartArr:iProduct[] = this.productsvc.cartProductArr
   constructor(private productsvc:ProductService) {}
 
   ngOnInit(){
@@ -21,5 +22,17 @@ export class HomeComponent implements OnInit {
 
 
 
+
+  }
+  favoriteproduct(product: iProduct) {
+    this.productsvc.addToFavorite(product);
+  }
+  addtoCart(product: iProduct) {
+    this.productsvc.addtoCart(product);
+  }
+  removefromCart(product: iProduct) {
+    this.productsvc.removeFormCart(product)
+    this. productsCartArr = this.productsvc.cartProductArr
+    console.log(this.productsCartArr)
   }
 }

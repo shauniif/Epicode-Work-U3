@@ -1,1 +1,16 @@
-<p>favorite works!</p>
+<div class="row row-cols-1 row-cols-md-3 row-cols-4">
+  <div class="col mt-3" *ngFor="let product of favoriteArr">
+    <div class="card">
+      <app-single-product [product]="product"></app-single-product>
+      <div class="d-flex justify-content-between">
+        <button
+          href="#"
+          (click)="removeFromFavorite(product)"
+          class="btn btn-primary w-auto"
+        >
+          Rimuovi dai preferiti
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,44 @@
 <div class="row row-cols-1 row-cols-md-3 row-cols-4">
   <div class="col mt-3" *ngFor="let product of productsArr">
-    <app-single-product [product]="product"></app-single-product>
+    <div class="card">
+      <app-single-product [product]="product"> </app-single-product>
+      <div class="d-flex justify-content-between">
+        <button
+          href="#"
+          (click)="favoriteproduct(product)"
+          class="btn btn-primary w-auto"
+        >
+          Aggiungi ai preferiti
+        </button>
+        <button (click)="addtoCart(product)" class="btn btn-success w-auto">
+          Aggiungi al carello
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="divflexed text-bg-dark overflow-scroll px-5"
+  *ngIf="productsCartArr.length > 0"
+>
+  <div class="row row-cols-1 row-cols-md-3 row-cols-4">
+    <h6 class="">Carrello:</h6>
+  </div>
+  <div
+    class="row justify-content-center row-cols-1 p-0"
+    *ngFor="let product of productsCartArr"
+  >
+    <div class="col-auto mt-3 p-0">
+      <div class="card dimension-card">
+        <img [src]="[product.images[0]]" class="imgwidth" alt="..." />
+        <button
+          (click)="removefromCart(product)"
+          class="btn btn-success w-auto"
+        >
+          Remove
+        </button>
+      </div>
+    </div>
   </div>
 </div>
