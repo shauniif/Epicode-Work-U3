@@ -249,7 +249,7 @@ export class PostsService {
   }
 
   ]
-
+  clicked = false
   constructor() {
 
   }
@@ -287,6 +287,9 @@ export class PostsService {
   getArrayTags():string[]{
     let ArrAllTags:string[] = [...new Set(this.ArticleArr.flatMap(stag => stag.tags))]
     return ArrAllTags
+  }
+  getfiltredArrbyTags(tag:string){
+    return this.ArticleArr.filter(post => post.tags.includes(tag) )
   }
 
 }

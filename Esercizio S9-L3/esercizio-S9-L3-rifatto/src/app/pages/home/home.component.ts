@@ -14,7 +14,7 @@ export class HomeComponent {
   firstArticle!:iPost
   randomArticle:iPost[] = []
   selectedIndex: number | null = null
-  clicked:boolean = false
+  filter!: string
   constructor(
     private postsSvc:PostsService
   ){}
@@ -31,9 +31,18 @@ export class HomeComponent {
       console.log(this.ArticleArr)
 
       this.TagsArr = this.postsSvc.getArrayTags();
-      console.log(this.TagsArr)
+      console.log(this.TagsArr);
+
+
 
     }
-
-}
+    filtredArrbyTags(tag:string) {
+        this.filter = tag;
+      this.ArticleArr = this.postsSvc.getfiltredArrbyTags(tag);
+  }
+    resetArr() {
+      this.ArticleArr = this.postsSvc.getAll();
+      this.filter = '';
+    }
+  }
 
