@@ -1,0 +1,12 @@
+<div class="card h-100">
+  <img [src]="[img.url]" class="card-img-top" alt="..." />
+  <div class="card-body">
+    <h5 class="card-title">{{ img.title }}</h5>
+    <p class="card-text">{{ img.albumId }}</p>
+    <p class="card-text">{{ img.id }}</p>
+    <div class="d-flex justify-content-between">
+      <button class="btn btn-success" (click)="likedImg(img)">Mi piace</button>
+      <button class="btn btn-danger">Elimina</button>
+    </div>
+  </div>
+</div>

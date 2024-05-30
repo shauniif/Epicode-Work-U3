@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div class="col">Numero di mi piace: {{ likedImg.length }}</div>
+  </div>
+
+  <div class="row row-col-1 row-cols-md-4 row-cols-lg-3">
+    <div class="col my-3" *ngFor="let i of imgArr">
+      <app-single-post [img]="i"></app-single-post>
+    </div>
+  </div>
+</div>
