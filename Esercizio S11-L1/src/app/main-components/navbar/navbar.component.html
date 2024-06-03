@@ -34,7 +34,10 @@
             >Inactive posts</a
           >
         </li>
-        <li class="nav-item"></li>
+        <li class="nav-item">
+          <button *ngIf="!isLoggedIn" (click)="login()">Login</button>
+          <button *ngIf="isLoggedIn" (click)="logout()">Logout</button>
+        </li>
       </ul>
     </div>
   </div>
