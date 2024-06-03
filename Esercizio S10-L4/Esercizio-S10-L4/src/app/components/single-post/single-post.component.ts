@@ -8,11 +8,12 @@ import { ImageService } from '../../Services/image.service';
   styleUrl: './single-post.component.scss'
 })
 export class SinglePostComponent {
-
+  slike: number = 0;
   @Input() img!: iImg;
   constructor(private imgsvc:ImageService) {}
   likedImg(img:iImg) {
     this.imgsvc.likeImg(img);
+    this.slike++
   }
 
 }

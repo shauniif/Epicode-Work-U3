@@ -18,6 +18,7 @@ ngOnInit() {
     this.imgArr = this.imgArr.slice(0, 100)
     console.log(this.imgArr);
   });
+
   this.imgsvc.like$.subscribe(img =>{
     this.likedImg.push(img);
     console.log(this.likedImg);

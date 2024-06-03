@@ -5,7 +5,9 @@
     <p class="card-text">{{ img.albumId }}</p>
     <p class="card-text">{{ img.id }}</p>
     <div class="d-flex justify-content-between">
-      <button class="btn btn-success" (click)="likedImg(img)">Mi piace</button>
+      <button class="btn btn-success" (click)="likedImg(img)">
+        Mi piace: {{ slike }}
+      </button>
       <button class="btn btn-danger">Elimina</button>
     </div>
   </div>

@@ -1,0 +1,28 @@
+<div class="card h-100 border" [ngClass]="{ 'border-info': article.active }">
+  <div class="card-body">
+    <h5 class="card-title">{{ article.title }}</h5>
+    <p class="card-text flex-grow-1">{{ article.body }}</p>
+    <div>
+      <a
+        class="badge me-1"
+        *ngFor="let tag of article.tags"
+        appDirectiverandomcolor
+      >
+        {{ tag | uppercase }}
+      </a>
+    </div>
+
+    <a
+      [routerLink]="['/post-detail', article.id]"
+      class="btn btn-info btn-md mt-auto align-self-end"
+      >Dettaglio</a
+    >
+    <button
+      (click)="ShowForm()"
+      class="btn btn-info btn-md mt-auto align-self-end ms-3"
+    >
+      Mostra form
+    </button>
+    <ng-content *ngIf="show"></ng-content>
+  </div>
+</div>

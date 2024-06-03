@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './main-components/header/header.component';
 import { FooterComponent } from './main-components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
+
 import { SinglePostComponent } from './components/single-post/single-post.component';
 
 @NgModule({
@@ -22,7 +23,12 @@ import { SinglePostComponent } from './components/single-post/single-post.compon
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorResponse,
+      multi: true 
+    }
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

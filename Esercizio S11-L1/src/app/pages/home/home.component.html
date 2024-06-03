@@ -1,0 +1,72 @@
+<h1 class="text-center mt-3">Post in evidenza:</h1>
+<div class="row row-cols-1 row-cols-md-3 row-cols-4" *ngIf="firstArticle">
+  <div class="col mt-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ firstArticle.title }}</h5>
+        <p class="card-text">
+          {{ firstArticle.body }}
+        </p>
+        <a
+          [routerLink]="['/post-detail', firstArticle.id]"
+          class="btn btn-primary"
+          >Go somewhere</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="text-center">Post che potrebbero piacerti:</h2>
+<div class="row row-cols-1 row-cols-md-3 row-cols-4">
+  <div class="col mt-3" *ngFor="let article of randomArticle">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ article.title }}</h5>
+        <p class="card-text">{{ article.body }}</p>
+        <a [routerLink]="['/post-detail', article.id]" class="btn btn-primary"
+          >Go somewhere</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="text-center">Tutti i post</h2>
+
+<div class="row justify-content-between">
+  <div class="col-2">
+    <h4>Fltred by:</h4>
+  </div>
+  <div class="col-10 d-flex justify-content-center">
+    <button
+      *ngFor="let tag of TagsArr"
+      class="w-auto btn btn-secondary"
+      [ngClass]="{
+        'btn-success': filter === tag,
+        'btn-secondary': filter !== tag
+      }"
+      (click)="filtredArrbyTags(tag)"
+    >
+      {{ tag | uppercase }}
+    </button>
+    <button class="w-auto btn btn-warning" (click)="resetArr()">
+      Annulla Filtri
+    </button>
+  </div>
+</div>
+<div class="row row-cols-1 row-cols-md-3 row-cols-4">
+  <div class="col mt-3" *ngFor="let article of ArticleArr">
+    <app-single-post [article]="article">
+      <form>
+        <input
+          type="text"
+          class="form-control"
+          name="titolo"
+          placeholder="titolo articolo"
+          [(ngModel)]="article.title"
+        />
+      </form>
+    </app-single-post>
+  </div>
+</div>

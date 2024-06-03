@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-sm bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/" routerLinkActive="active"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/active-posts"
+            routerLinkActive="active"
+            >Active posts</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-disabled="true"
+            routerLink="/inactive-posts"
+            routerLinkActive="active"
+            >Inactive posts</a
+          >
+        </li>
+        <li class="nav-item"></li>
+      </ul>
+    </div>
+  </div>
+</nav>
