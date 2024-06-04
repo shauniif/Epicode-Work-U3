@@ -1,1 +1,37 @@
-<p>login works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form #f="ngForm">
+        <div class="formgroup">
+          <input
+            type="text"
+            required
+            ngModel
+            name="username"
+            class="form-control"
+            placeholder="username"
+            #username="ngModel"
+          />
+          <span *ngIf="isTouchedInvalid(username)"> Username non corretto</span>
+          <input
+            type="password"
+            required
+            ngModel
+            name="password"
+            class="form-control"
+            placeholder="password"
+            #password="ngModel"
+          />
+          <span *ngIf="isTouchedInvalid(password)"> Password non corretta</span>
+        </div>
+        <button
+          (click)="submit()"
+          [disabled]="f.invalid"
+          class="btn btn-success"
+        >
+          Accedi
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

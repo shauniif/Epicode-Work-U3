@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +13,12 @@ export class SignInFormService {
       name: this.fb.control(null, [Validators.required]),
       surname: this.fb.control(null, [Validators.required]),
       password: this.fb.control(null, [Validators.required]),
-      Confirmpassword: this.fb.control(null, [Validators.required]),
+      confirmPassword: this.fb.control(null, [Validators.required]),
       gender: this.fb.control(null, [Validators.required]),
       biography: this.fb.control(null, [Validators.required]),
       file: this.fb.control(null, [Validators.required]),
       username: this.fb.control(null, [Validators.required])
-    }, { validator : this.matchPassword}
+    }, { validators : this.matchPassword}
   );
   }
   isTouchedInvalid(form:FormGroup,  fieldName:string){
@@ -26,18 +26,26 @@ export class SignInFormService {
 
     return field?.invalid && field?.touched
   }
-  matchPassword = (formC:FormControl): ValidationErrors|null => {
-    const password = formC.get('password')?.value;
-    const confirmPassword = formC.get('confirmPassword')?.value;
-    if(password !== confirmPassword) {
+
+
+
+  matchPassword: ValidatorFn = (formC:AbstractControl): ValidationErrors|null => {
+    const password = formC.get('password');
+    const confirmPassword = formC.get('confirmPassword');
+    if(password?.value !== confirmPassword?.value) {
       return  {
-        invalidmatch: true
+        invalidMatch: true
       }
       }
       return null
   }
+/*  matchPassword: ValidatorFn = (formC:AbstractControl): ValidationErrors|null => {
+    const password = formC.get('password');
+    const confirmPassword = formC.get('confirmPassword');
+    return (password?.value === confirmPassword?.value) ? null: {invalidMatch: true};
+  } */
   submitSignIn(form: FormGroup) {
-    return console.log(form.value)
+    return console.log(form)
   }
 
 }

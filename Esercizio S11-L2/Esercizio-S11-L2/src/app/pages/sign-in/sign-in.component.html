@@ -34,17 +34,15 @@
           >
           <input
             type="password"
-            formControlName="Confirmpassword"
+            formControlName="confirmPassword"
             class="form-control"
             placeholder="Conferma la tua password"
           />
 
-          <span *ngIf="isTouchedInvalid('Confirmpassword')"
+          <span *ngIf="isTouchedInvalid('confirmPassword')"
             >Non hai inserito correttamente la password</span
           >
-          <span
-            *ngIf="signInForm.get('Confirmpassword')?.errors?.['invalidmatch']"
-          >
+          <span *ngIf="signInForm.errors?.['invalidMatch']">
             Le password non corrispondono.
           </span>
           <select formControlName="gender" class="form-control">
