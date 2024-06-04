@@ -12,8 +12,10 @@ export class AuthService {
 
   login() {
     this.isLoggedIn = true;
+    this.router.navigate(['/inactive-posts']);
   }
   logout() {
     this.isLoggedIn = false;
+    this.router.navigate(['']);
   }
   }

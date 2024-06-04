@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form [formGroup]="signInForm">
+        <div class="form-group">
+          <input
+            type="text"
+            formControlName="name"
+            class="form-control"
+            placeholder="inserisci il tuo nome"
+          />
+          <span *ngIf="isTouchedInvalid('name')"
+            >Non hai inserito correttamente il nome.</span
+          >
+          <input
+            type="text"
+            formControlName="surname"
+            class="form-control"
+            placeholder="inserisci il tuo cognome"
+          />
+          <span *ngIf="isTouchedInvalid('surname')"
+            >Non hai inserito correttamente il cognome.</span
+          >
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            formControlName="password"
+            class="form-control"
+            placeholder="inserisci la tua password"
+          />
+          <span *ngIf="isTouchedInvalid('password')"
+            >Non hai inserito correttamente la password</span
+          >
+          <input
+            type="password"
+            formControlName="Confirmpassword"
+            class="form-control"
+            placeholder="Conferma la tua password"
+          />
+
+          <span *ngIf="isTouchedInvalid('Confirmpassword')"
+            >Non hai inserito correttamente la password</span
+          >
+          <span
+            *ngIf="signInForm.get('Confirmpassword')?.errors?.['invalidmatch']"
+          >
+            Le password non corrispondono.
+          </span>
+          <select formControlName="gender" class="form-control">
+            <option value="Maschio">Maschio</option>
+            <option value="Femmina">Femmina</option>
+            <option value="Altro">Altro</option>
+            <option value="Preferisco non rispondere">
+              Preferisco non rispondere
+            </option>
+          </select>
+          <textarea formControlName="biography"></textarea>
+          <input type="file" formControlName="file" class="form-control" />
+          <span *ngIf="isTouchedInvalid('file')"
+            >Non hai inserito correttamente il file</span
+          >
+          <input type="text" formControlName="username" />
+          <span *ngIf="isTouchedInvalid('username')"
+            >Non hai inserito correttamente il username</span
+          >
+        </div>
+
+        <button (click)="submitSignIn()" class="btn btn-primary">Invia</button>
+      </form>
+    </div>
+  </div>
+</div>
