@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "email": "hiwyqe@mailinator.com",
+      "password": "$2a$10$dw/wdK7qVSYsqj/0bX4nOuRYGUVs7eoCz31zXkuHOhbTwjPRnxqnW",
+      "nome": "Aut esse quos enim d",
+      "id": 1
+    },
+    {
+      "email": "zihim@mailinator.com",
+      "password": "$2a$10$dKPn6/CvvoRi5luDOjv25.1Wde7TXZ6Ep/SguCfTTvcrp9wCRPHny",
+      "nome": "Nulla nisi alias nos",
+      "id": 2
+    }
+  ]
+}

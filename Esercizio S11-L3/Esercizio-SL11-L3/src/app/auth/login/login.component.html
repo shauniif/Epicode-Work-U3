@@ -1,0 +1,21 @@
+<div class="alert alert-info">
+  <form>
+    <input
+      type="email"
+      name="email"
+      [(ngModel)]="authData.email"
+      class="form-control mt-3"
+      placeholder="inserisci la tua email"
+    />
+    <input
+      type="password"
+      name="password"
+      [(ngModel)]="authData.password"
+      class="form-control mt-3"
+      placeholder="inserisci la tua password"
+    />
+    <button (click)="login()" class="btn btn-success mt-3">
+      ACCEDI NOOOOOW!
+    </button>
+  </form>
+</div>
